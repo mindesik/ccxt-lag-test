@@ -59,11 +59,21 @@ let start = async () => {
     let startedAt = moment()
     let code = Object.keys(exchanges)[i]
     let exchange = exchanges[code]
-    await exchange.fetchTicker('LTC/BTC')
+    let result = 'success'
+    let errorMessage = null
+    try {
+      await exchange.fetchTicker('LTC/BTC')
+    } catch (e) {
+      result = 'error'
+      errorMessage = e.message
+    }
+    
     await Log.create({
       env: process.env.ENV,
       exchange: code,
       lag: moment().diff(startedAt),
+      result: result,
+      errorMessage: errorMessage,
     })
 
     if (parseInt(i) + 1 === Object.keys(exchanges).length) {

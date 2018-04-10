@@ -12,7 +12,7 @@ const sequelize = new Sequelize({
   logging: typeof process.env.DEBUG !== 'undefined' && process.env.DEBUG == 'true',
 })
 
-const Log = sequelize.define('lagLoggers', {
+const Log = sequelize.define(process.env.DB_TABLE, {
   env: {
     type: Sequelize.STRING,
   },

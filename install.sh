@@ -12,11 +12,12 @@ yarn global add pm2
 git clone https://github.com/misterpaladin/ccxt-lag-test.git
 cd ccxt-lag-test
 yarn
-echo ENV=$6 >> .env
+echo ENV=$7 >> .env
 echo DB_HOST=$1 >> .env
 echo DB_PORT=$2 >> .env
 echo DB_USER=$3 >> .env
 echo DB_PASSWORD=$4 >> .env
 echo DB_NAME=$5 >> .env
+echo DB_TABLE=$6 >> .env
 
 pm2 start index.js

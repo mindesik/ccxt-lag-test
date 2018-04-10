@@ -8,3 +8,5 @@ apt update
 apt install --no-install-recommends yarn git -y
 
 git clone git@github.com:misterpaladin/ccxt-lag-test.git
+cd ccxt-lag-test
+yarn

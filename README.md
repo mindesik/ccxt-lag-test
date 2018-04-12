@@ -1,3 +1,5 @@
+Tool to measure exchanges response latency
+
 ## Usage
 
 ```sh
